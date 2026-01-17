@@ -8,8 +8,11 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @list = List.find(params[:list_id])
     @bookmark.list_id = @list.id
-    @bookmark.save
-    redirect_to list_path(@list)
+    if @bookmark.save
+      redirect_to list_path(@list)
+    else
+      render "new", status: :unprocessable_entity
+    end
   end
 
   def destroy

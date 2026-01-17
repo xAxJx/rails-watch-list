@@ -1,7 +1,7 @@
 <h1> Add a new movie to <%= @list.name %> </h1>
 
 <%= simple_form_for([@list, @bookmark]) do |f| %>
-  <%= f.association :movie %>
+  <%= f.association :movie, include_blank: false %>
   <%= f.input :comment %>
   <%= f.hidden_field :list_id, :value => @list.id %>
   <%= f.button :submit %>
