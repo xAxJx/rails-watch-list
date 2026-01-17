@@ -1,0 +1,10 @@
+<h1> Add New List </h1>
+
+<%= form_with model: @list do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+
+
+<p> <%= link_to "Index", lists_path %> </p>
