@@ -1,8 +1,9 @@
 <h2> Add New List </h1>
 
-<%= form_with model: @list do |f| %>
+<%= simple_form_for(@list) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit class: "btn btn-primary"  %>
 <% end %>
 
