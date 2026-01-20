@@ -1,9 +1,9 @@
-<h1> Movie Index </h1>
+<h2> Movie List Index </h2>
+<p> Showing <%=@lists.count%> lists </p>
 
 <ul>
 <% @lists.each do |list| %>
-<li> <%= link_to list.name, list_path(list) %> </li>
+<li> <%= link_to list.name, list_path(list) %> (<%=list.movies.count%>)</li>
 <%end%>
 </ul>
-
 <p> <%= link_to "New List", new_list_path %> </p>

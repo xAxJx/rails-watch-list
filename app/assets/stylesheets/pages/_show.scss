@@ -1,0 +1,17 @@
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+@media(max-width: 980px) {
+  .card-container {
+  grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 670px) {
+  .card-container {
+  grid-template-columns: 1fr;
+  }
+}

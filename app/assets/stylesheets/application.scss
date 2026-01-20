@@ -10,3 +10,46 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+@import "components/movie-card";
+
+// Universal code
+
+body {
+  background: black;
+  color: white;
+}
+
+.top-banner {
+  background: #00BBFF;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-style: bold;
+
+  h1 {
+    color: white;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.main {
+  margin-left: 25px;
+  margin-right: 25px;
+
+  a {
+  color:#00BBFF;
+}
+}
+
+.movie-poster {
+  object-fit: cover;
+  padding: 1px;
+}
