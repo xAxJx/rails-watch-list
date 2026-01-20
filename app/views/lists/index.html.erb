@@ -1,9 +1,14 @@
 <h2> Movie List Index </h2>
 <p> Showing <%=@lists.count%> lists </p>
 
-<ul>
+<div class="lists-container">
 <% @lists.each do |list| %>
-<li> <%= link_to list.name, list_path(list) %> (<%=list.movies.count%>)</li>
+<div class="list-card">
+<%= link_to (image_tag "test.jpg", size:"198x100", class: "list-poster"), list_path(list) %>
+  <p>
+<%= link_to list.name, list_path(list)%> (<%=list.movies.count%>)
+</p>
+</div>
 <%end%>
-</ul>
+</div>
 <p> <%= link_to "New List", new_list_path %> </p>

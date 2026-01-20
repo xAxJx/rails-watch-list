@@ -12,6 +12,7 @@
 @import "pages/index";
 
 @import "components/movie-card";
+@import "components/list-card";
 
 // Universal code
 
@@ -52,4 +53,16 @@ body {
 .movie-poster {
   object-fit: cover;
   padding: 1px;
+}
+
+.list-poster {
+  object-fit: cover;
+  padding: 1px;
+}
+
+.lists-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
