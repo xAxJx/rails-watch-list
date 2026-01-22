@@ -30,7 +30,7 @@ pp movies[:results]
 
 #Seed Movies using API
 movies["results"].each do |movie|
-  title = movie["original_title"]
+  title = movie["title"]
   overview = movie["overview"]
   poster = "https://image.tmdb.org/t/p/w500/#{movie["poster_path"]}"
   Movie.create(title: title, overview: overview, poster_url: poster)
