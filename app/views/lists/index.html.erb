@@ -5,8 +5,7 @@
 <% @lists.each do |list| %>
 <div class="list-card">
 <% if list.photo.key %>
-  <%= link_to (image_tag "test.jpg", size:"198x100", class: "list-poster"), list_path(list) %>
-  <%# <%= cl_image_tag list.photo.key, height: 100, width: 198, crop: :fill %>
+  <%= cl_image_tag list.photo.key, height: 100, width: 198, crop: :fill %>
 <% else %>
   <%= link_to (image_tag "test.jpg", size:"198x100", class: "list-poster"), list_path(list) %>
 <% end %>
