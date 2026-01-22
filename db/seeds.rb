@@ -33,7 +33,8 @@ movies["results"].each do |movie|
   title = movie["title"]
   overview = movie["overview"]
   poster = "https://image.tmdb.org/t/p/w500/#{movie["poster_path"]}"
-  Movie.create(title: title, overview: overview, poster_url: poster)
+  rating = movie["vote_average"]
+  Movie.create(title: title, overview: overview, poster_url: poster, rating: rating)
 end
 
 puts "Finished seeding database with an additional #{Movie.count - 4} movies from TMDB API."
