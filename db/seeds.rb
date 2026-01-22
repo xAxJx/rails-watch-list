@@ -9,6 +9,7 @@
 #   end
 
 # clean database
+Bookmark.destroy_all
 Movie.destroy_all
 
 # seed movies
@@ -17,4 +18,22 @@ Movie.create(title: "The Shawshank Redemption", overview: "Framed in the 1940s f
 Movie.create(title: "Titanic", overview: "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic.", poster_url: "https://image.tmdb.org/t/p/original/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg", rating: 7.9)
 Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.", poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg", rating: 7.0)
 
-puts "Finished seeding database with #{Movie.count} movies."
+puts "Finished seeding database with basic #{Movie.count} movies."
+
+#API
+require "json"
+require "open-uri"
+url = "https://tmdb.lewagon.com/movie/top_rated"
+movie_info = URI.open(url).read
+movies = JSON.parse(movie_info)
+pp movies[:results]
+
+#Seed Movies using API
+movies["results"].each do |movie|
+  title = movie["original_title"]
+  overview = movie["overview"]
+  poster = "https://image.tmdb.org/t/p/w500/#{movie["poster_path"]}"
+  Movie.create(title: title, overview: overview, poster_url: poster)
+end
+
+puts "Finished seeding database with an additional #{Movie.count - 4} movies from TMDB API."
